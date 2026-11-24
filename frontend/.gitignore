@@ -1,0 +1,19 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node dependencies
+/node_modules
+
+# Angular cache
+/.angular
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# Misc
+.DS_Store
+Thumbs.db
