@@ -6,7 +6,7 @@ const jobRoutes = require('./routes/job.routes');
 const { errorHandler } = require('./middleware/error.middleware');
 
 // Load environment variables
-dotenv.config();
+dotenv.config({ path: require('path').join(__dirname, '.env') });
 
 // Connect to MongoDB
 connectDB();
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 // CORS Middleware
 app.use(
   cors({
-    origin: '*', // Allow all origins in local development
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
@@ -51,10 +51,14 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => {
-  console.log(`🚀 CareerTrack API Server is running on http://localhost:${PORT}`);
-  console.log(`👉 Health check: http://localhost:${PORT}/api/health`);
-  console.log(`👉 Job endpoints: http://localhost:${PORT}/api/jobs`);
-});
+let server = null;
+if (!process.env.VERCEL) {
+  server = app.listen(PORT, () => {
+    console.log(`🚀 CareerTrack API Server is running on http://localhost:${PORT}`);
+    console.log(`👉 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`👉 Job endpoints: http://localhost:${PORT}/api/jobs`);
+  });
+}
 
-module.exports = { app, server };
+app.server = server;
+module.exports = app;

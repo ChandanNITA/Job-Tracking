@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const { connectDB, disconnectDB } = require('./config/db');
 const Job = require('./models/job.model');
 
-dotenv.config();
+dotenv.config({ path: require('path').join(__dirname, '.env') });
 
 const sampleJobs = [
   {
