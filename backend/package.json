@@ -9,10 +9,16 @@
     "seed": "node seed.js",
     "test": "node test-api.js"
   },
-  "keywords": ["job-tracker", "express", "mongodb", "angular"],
+  "keywords": [
+    "job-tracker",
+    "express",
+    "mongodb",
+    "angular"
+  ],
   "author": "CareerTrack Team",
   "license": "MIT",
   "dependencies": {
+    "@google/genai": "^3.6.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

@@ -13,6 +13,7 @@ const sampleJobs = [
     employmentType: 'Full-time',
     workMode: 'Hybrid',
     jobLink: 'https://careers.google.com/jobs/results/123456',
+    jobDescription: 'Design and implement scalable web applications using Angular 17, TypeScript, RxJS, and modern frontend architecture. Collaborate with UX and backend engineers to build cloud management consoles.',
     appliedDate: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000), // 14 days ago
     status: 'Interview Scheduled',
     expectedSalary: 165000,

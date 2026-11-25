@@ -103,6 +103,16 @@ import { IconComponent } from '../icon/icon.component';
             "{{ job.notes }}"
           </p>
         }
+
+        <!-- Prepare with AI Button -->
+        <a
+          [routerLink]="['/jobs', job._id, 'interview-preparation']"
+          class="mt-3 w-full inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 hover:from-indigo-100 hover:to-purple-100 text-indigo-700 border border-indigo-200/70 text-xs font-semibold shadow-xs hover:shadow transition-all group-hover:border-indigo-300"
+          title="Generate interview preparation questions with Google Gemini"
+        >
+          <app-icon name="sparkles" [size]="13" cssClass="text-indigo-600"></app-icon>
+          <span>Prepare with AI</span>
+        </a>
       </div>
 
       <!-- Footer: Status Switcher Dropdown -->

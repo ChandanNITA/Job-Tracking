@@ -33,12 +33,19 @@ function waitForServer(retries = 15) {
 
 waitForServer()
   .then(() => {
-    console.log('Running test suite...');
+    console.log('Running test suites...');
     const testProcess = spawn('node', ['backend/test-api.js'], { stdio: 'inherit' });
     testProcess.on('exit', (code) => {
-      console.log(`Tests finished with exit code: ${code}`);
-      serverProcess.kill();
-      process.exit(code);
+      if (code !== 0) {
+        serverProcess.kill();
+        process.exit(code);
+      }
+      const aiTestProcess = spawn('node', ['backend/test-ai.js'], { stdio: 'inherit' });
+      aiTestProcess.on('exit', (aiCode) => {
+        console.log(`All test suites finished with exit code: ${aiCode}`);
+        serverProcess.kill();
+        process.exit(aiCode);
+      });
     });
   })
   .catch((err) => {

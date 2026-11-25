@@ -15,6 +15,7 @@ export interface JobApplication {
   employmentType: EmploymentType;
   workMode: WorkMode;
   jobLink?: string;
+  jobDescription?: string;
   appliedDate: string | Date;
   status: JobStatus;
   expectedSalary?: number | null;

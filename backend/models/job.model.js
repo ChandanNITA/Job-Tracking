@@ -46,6 +46,11 @@ const jobSchema = new mongoose.Schema(
       trim: true,
       default: '',
     },
+    jobDescription: {
+      type: String,
+      trim: true,
+      default: '',
+    },
     appliedDate: {
       type: Date,
       required: [true, 'Applied date is required'],

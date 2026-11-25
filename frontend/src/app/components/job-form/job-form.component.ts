@@ -243,6 +243,24 @@ import { IconComponent } from '../icon/icon.component';
           </div>
         </div>
 
+        <!-- Job Description (Optional) -->
+        <div>
+          <label for="jobDescription" class="block text-sm font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
+            <span>Job Description <span class="text-slate-400 font-normal">(optional)</span></span>
+            <span class="text-xs text-indigo-600 font-medium flex items-center gap-1">
+              <app-icon name="sparkles" [size]="12"></app-icon>
+              Powers AI Interview Prep
+            </span>
+          </label>
+          <textarea
+            id="jobDescription"
+            rows="3"
+            formControlName="jobDescription"
+            placeholder="Paste job posting responsibilities, skills, or requirements to optimize AI question generation..."
+            class="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm text-slate-800 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-100 transition-all placeholder:text-slate-400 resize-y"
+          ></textarea>
+        </div>
+
         <!-- Notes (Optional) -->
         <div>
           <label for="notes" class="block text-sm font-semibold text-slate-700 mb-1.5">
@@ -306,6 +324,7 @@ export class JobFormComponent implements OnInit, OnChanges {
     employmentType: ['Full-time', Validators.required],
     workMode: ['Remote', Validators.required],
     jobLink: ['', [Validators.pattern('https?://.+')]],
+    jobDescription: [''],
     appliedDate: [this.formatDateForInput(new Date()), Validators.required],
     status: ['Applied', Validators.required],
     expectedSalary: [null, [Validators.min(0)]],
@@ -343,6 +362,7 @@ export class JobFormComponent implements OnInit, OnChanges {
       employmentType: data.employmentType || 'Full-time',
       workMode: data.workMode || 'Remote',
       jobLink: data.jobLink || '',
+      jobDescription: data.jobDescription || '',
       appliedDate: this.formatDateForInput(data.appliedDate),
       status: data.status || 'Applied',
       expectedSalary: data.expectedSalary ?? null,

@@ -161,6 +161,45 @@ import { CommonModule } from '@angular/common';
         <line x1="6" x2="18" y1="6" y2="18" />
       }
 
+      <!-- Chevron Up -->
+      @if (name === 'chevron-up') {
+        <path d="m18 15-6-6-6 6" />
+      }
+
+      <!-- Sparkles (AI) -->
+      @if (name === 'sparkles' || name === 'ai') {
+        <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+        <path d="M19 3v4" />
+        <path d="M21 5h-4" />
+        <path d="M5 19v2" />
+        <path d="M6 20H4" />
+      }
+
+      <!-- Copy -->
+      @if (name === 'copy') {
+        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+      }
+
+      <!-- Refresh / Rotate-cw -->
+      @if (name === 'refresh' || name === 'rotate-cw') {
+        <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+        <path d="M21 3v5h-5" />
+      }
+
+      <!-- Book Open -->
+      @if (name === 'book-open') {
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+      }
+
+      <!-- Lightbulb -->
+      @if (name === 'lightbulb') {
+        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+        <path d="M9 18h6" />
+        <path d="M10 22h4" />
+      }
+
       <!-- Building -->
       @if (name === 'building') {
         <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />

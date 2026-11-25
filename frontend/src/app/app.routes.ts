@@ -45,6 +45,19 @@ export const routes: Routes = [
     title: 'Interview Schedule | CareerTrack',
   },
   {
+    path: 'jobs/:id/interview-preparation',
+    loadComponent: () =>
+      import('./pages/interview-preparation/interview-preparation.component').then(
+        (m) => m.InterviewPreparationComponent
+      ),
+    title: 'AI Interview Preparation | CareerTrack',
+  },
+  {
+    path: 'applications/:id/interview-preparation',
+    redirectTo: 'jobs/:id/interview-preparation',
+    pathMatch: 'full',
+  },
+  {
     path: '**',
     redirectTo: 'dashboard',
   },

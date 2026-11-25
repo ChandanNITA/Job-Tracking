@@ -124,6 +124,28 @@ async function runTests() {
     console.assert(verifyNotFound.status === 404, `Expected 404, got ${verifyNotFound.status}`);
     console.log('✅ Correctly received 404 for deleted job\n');
 
+    // 10. AI Endpoint Validation
+    console.log('Test 10: POST /api/ai/interview-questions validation check');
+    const invalidAiReq = await request('http://localhost:5000/api/ai/interview-questions', { method: 'POST' }, {});
+    console.assert(invalidAiReq.status === 400, `Expected 400 for empty body, got ${invalidAiReq.status}`);
+    console.log('✅ AI endpoint correctly rejects missing required fields with 400\n');
+
+    // 11. AI Endpoint Graceful Handling of Missing API Key
+    console.log('Test 11: POST /api/ai/interview-questions API key check');
+    const validShapeReq = await request('http://localhost:5000/api/ai/interview-questions', { method: 'POST' }, {
+      company: 'Google',
+      role: 'Frontend Engineer',
+      experienceLevel: 'Fresher',
+      difficulty: 'Medium',
+      interviewType: 'Mixed',
+    });
+    // If no key configured, should return 503 (or 200 if key configured)
+    console.assert(
+      validShapeReq.status === 503 || validShapeReq.status === 200 || validShapeReq.status === 401,
+      `Expected 503, 200, or 401, got ${validShapeReq.status}`
+    );
+    console.log(`✅ AI endpoint handled request with status ${validShapeReq.status} and clear message\n`);
+
     console.log('🎉 ALL BACKEND API TESTS PASSED SUCCESSFULLY!');
     process.exit(0);
   } catch (err) {

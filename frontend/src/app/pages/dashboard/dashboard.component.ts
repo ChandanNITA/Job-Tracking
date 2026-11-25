@@ -186,6 +186,7 @@ Chart.register(...registerables);
                       <th class="pb-3">Role</th>
                       <th class="pb-3">Applied</th>
                       <th class="pb-3">Status</th>
+                      <th class="pb-3 text-right">AI Prep</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-slate-100">
@@ -203,6 +204,16 @@ Chart.register(...registerables);
                         <td class="py-3 text-slate-500 text-xs">{{ job.appliedDate | date:'mediumDate' }}</td>
                         <td class="py-3">
                           <app-status-badge [status]="job.status"></app-status-badge>
+                        </td>
+                        <td class="py-3 text-right">
+                          <a
+                            [routerLink]="['/jobs', job._id, 'interview-preparation']"
+                            class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 hover:from-indigo-100 hover:to-purple-100 border border-indigo-200/70 transition-colors shadow-2xs"
+                            title="Prepare with Google Gemini AI"
+                          >
+                            <app-icon name="sparkles" [size]="12" cssClass="text-indigo-600"></app-icon>
+                            <span>Practice</span>
+                          </a>
                         </td>
                       </tr>
                     }

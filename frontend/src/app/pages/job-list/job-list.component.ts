@@ -253,7 +253,15 @@ import { IconComponent } from '../../components/icon/icon.component';
 
                         <!-- Actions -->
                         <td class="py-4 px-4 sm:px-6 text-right">
-                          <div class="inline-flex items-center gap-1">
+                          <div class="inline-flex items-center gap-1.5">
+                            <a
+                              [routerLink]="['/jobs', job._id, 'interview-preparation']"
+                              class="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 hover:from-indigo-100 hover:to-purple-100 border border-indigo-200/80 transition-all shadow-2xs"
+                              title="Prepare with Google Gemini AI"
+                            >
+                              <app-icon name="sparkles" [size]="13" cssClass="text-indigo-600"></app-icon>
+                              <span class="hidden xl:inline">Prepare with AI</span>
+                            </a>
                             @if (job.jobLink) {
                               <a
                                 [href]="job.jobLink"

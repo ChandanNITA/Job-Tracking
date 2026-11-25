@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const { connectDB } = require('./config/db');
 const jobRoutes = require('./routes/job.routes');
+const aiRoutes = require('./routes/ai.routes');
 const { errorHandler } = require('./middleware/error.middleware');
 
 // Load environment variables
@@ -37,6 +38,7 @@ app.get('/api/health', (req, res) => {
 
 // API Routes
 app.use('/api/jobs', jobRoutes);
+app.use('/api/ai', aiRoutes);
 
 // 404 Handler for undefined routes
 app.use((req, res, next) => {

@@ -136,7 +136,15 @@ import { IconComponent } from '../../components/icon/icon.component';
                   <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
                     <app-status-badge [status]="interview.status"></app-status-badge>
 
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-1.5">
+                      <a
+                        [routerLink]="['/jobs', interview._id, 'interview-preparation']"
+                        class="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 hover:from-indigo-100 hover:to-purple-100 border border-indigo-200/80 transition-colors shadow-2xs"
+                        title="Prepare for this interview with Google Gemini"
+                      >
+                        <app-icon name="sparkles" [size]="12" cssClass="text-indigo-600"></app-icon>
+                        <span class="hidden sm:inline">Prepare with AI</span>
+                      </a>
                       @if (interview.jobLink) {
                         <a
                           [href]="interview.jobLink"
