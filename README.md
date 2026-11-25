@@ -32,7 +32,9 @@ Explore CareerTrack's interactive job tracking dashboard, application management
 
 ![CareerTrack Application Demo](docs/demo.gif)
 
-🎬 **[Watch Full High-Definition Demo Video (MP4)](docs/demo.mp4)**
+
+https://github.com/user-attachments/assets/b8317001-c1e5-4a22-b9fd-cb6335d3f6b0
+
 
 *Dashboard Preview:*
 ![CareerTrack Dashboard](docs/thumbnail.png)
